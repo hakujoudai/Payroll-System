@@ -73,12 +73,34 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="testing.vb" />
-    <Compile Include="Form1.vb">
+    <Compile Include="admin\EmpDetails.Designer.vb">
+      <DependentUpon>EmpDetails.vb</DependentUpon>
+    </Compile>
+    <Compile Include="admin\EmpDetails.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="Bonus.Designer.vb">
+      <DependentUpon>Bonus.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Bonus.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Deduction.Designer.vb">
+      <DependentUpon>Deduction.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Deduction.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="admin\DeptDetails.Designer.vb">
+      <DependentUpon>DeptDetails.vb</DependentUpon>
+    </Compile>
+    <Compile Include="admin\DeptDetails.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="admin\Welcome.Designer.vb">
+      <DependentUpon>Welcome.vb</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Welcome.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -98,6 +120,21 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="admin\EmpDetails.resx">
+      <DependentUpon>EmpDetails.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bonus.resx">
+      <DependentUpon>Bonus.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Deduction.resx">
+      <DependentUpon>Deduction.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin\DeptDetails.resx">
+      <DependentUpon>DeptDetails.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin\Welcome.resx">
+      <DependentUpon>Welcome.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -119,6 +156,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="SQL\Payroll System.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="enduser\" />
+    <Folder Include="staff\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
