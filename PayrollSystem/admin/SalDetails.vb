@@ -72,7 +72,7 @@ Public Class SalDetails
         sqlCmd.Connection = sqlConn
 
         With sqlCmd
-            .CommandText = "UPDATE payroll.salary SET JOB_DESC=@JOB_DESC, SALARY_AMOUNT=@SALARY_AMOUNT WHERE SALARY_ID=@SALARY_ID"
+            .CommandText = "UPDATE payroll.salary SET JOB_CODE=@JOB_CODE, SALARY_AMOUNT=@SALARY_AMOUNT WHERE SALARY_ID=@SALARY_ID"
             .CommandType = CommandType.Text
             .Parameters.AddWithValue("@SALARY_ID", In1.Text)
             .Parameters.AddWithValue("@JOB_CODE", In2.Text)
