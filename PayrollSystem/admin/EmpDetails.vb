@@ -58,14 +58,14 @@ Public Class Form1
             sqlCmd = New MySqlCommand(query, sqlConn)
             sqlRd = sqlCmd.ExecuteReader
             sqlRd.Close()
-
+            MessageBox.Show("Successfully added Record")
         Catch ex As Exception
             MessageBox.Show(ex.Message, "MySQL Connector", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Finally
             sqlConn.Dispose()
         End Try
 
-        MessageBox.Show("Successfully added Record")
+
         loadTable()
         In1.Text = ""
         In2.Text = ""
