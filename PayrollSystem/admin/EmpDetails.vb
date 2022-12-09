@@ -36,8 +36,9 @@ Public Class Form1
             In4.Text = DataGridView1.SelectedRows(0).Cells(3).Value.ToString
             In5.Text = DataGridView1.SelectedRows(0).Cells(4).Value.ToString
             In6.Text = DataGridView1.SelectedRows(0).Cells(6).Value.ToString
-            In7.Text = DataGridView1.SelectedRows(0).Cells(7).Value.ToString
+            In7.Text = DataGridView1.SelectedRows(0).Cells(8).Value.ToString
             In8.Text = DataGridView1.SelectedRows(0).Cells(5).Value.ToString
+            In9.Text = DataGridView1.SelectedRows(0).Cells(7).Value.ToString
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
@@ -53,7 +54,7 @@ Public Class Form1
 
         Try
             sqlConn.Open()
-            query = "INSERT INTO payroll.employee (EMP_ID, EMP_LNAME, EMP_FNAME, EMP_GENDER, EMP_ADD, JOB_CODE, EMP_CONTACT_NUMBER, EMP_HOURS_WORKED) VALUE (" & "'" & In1.Text & "', '" & In2.Text & "' , '" & In3.Text & "' , '" & In4.Text & "', '" & In5.Text & "', " & "null" & ", '" & In6.Text & "', '" & In7.Text & "');"
+            query = "INSERT INTO payroll.employee (EMP_ID, EMP_LNAME, EMP_FNAME, EMP_GENDER, EMP_ADD, JOB_CODE, EMP_CONTACT_NUMBER, SALARY_ID, EMP_HOURS_WORKED) VALUE (" & "'" & In1.Text & "', '" & In2.Text & "' , '" & In3.Text & "' , '" & In4.Text & "', '" & In5.Text & "', " & "null" & ", '" & In6.Text & "', " & "null, '" & In7.Text & "');"
             sqlCmd = New MySqlCommand(query, sqlConn)
             sqlRd = sqlCmd.ExecuteReader
             sqlRd.Close()
@@ -73,6 +74,8 @@ Public Class Form1
         In5.Text = ""
         In6.Text = ""
         In7.Text = ""
+        In8.Text = ""
+        In9.Text = ""
 
     End Sub
 
@@ -83,9 +86,11 @@ Public Class Form1
         sqlCmd.Connection = sqlConn
 
         With sqlCmd
-            .CommandText = "UPDATE payroll.employee SET JOB_CODE=@JOB_CODE WHERE EMP_ID =@EMP_ID"
+            .CommandText = "UPDATE payroll.employee SET JOB_CODE=@JOB_CODE, SALARY_ID=@SALARY_ID, EMP_HOURS_WORKED=@EMP_HOURS_WORKED WHERE EMP_ID =@EMP_ID"
             .CommandType = CommandType.Text
             .Parameters.AddWithValue("@EMP_ID", In1.Text)
+            .Parameters.AddWithValue("@EMP_HOURS_WORKED", In7.Text)
+            .Parameters.AddWithValue("@SALARY_ID", In9.Text)
             .Parameters.AddWithValue("@JOB_CODE", In8.Text)
 
 
@@ -105,7 +110,7 @@ Public Class Form1
         In6.Text = ""
         In7.Text = ""
         In8.Text = ""
-
+        In9.Text = ""
 
     End Sub
 
@@ -141,7 +146,7 @@ Public Class Form1
         In6.Text = ""
         In7.Text = ""
         In8.Text = ""
-
+        In9.Text = ""
         loadTable()
 
     End Sub

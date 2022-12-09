@@ -44,6 +44,8 @@ Partial Class Form1
         Me.In8 = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
+        Me.In9 = New System.Windows.Forms.TextBox()
+        Me.Label10 = New System.Windows.Forms.Label()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -215,7 +217,7 @@ Partial Class Form1
         '
         'In8
         '
-        Me.In8.Location = New System.Drawing.Point(163, 376)
+        Me.In8.Location = New System.Drawing.Point(163, 369)
         Me.In8.Name = "In8"
         Me.In8.Size = New System.Drawing.Size(122, 20)
         Me.In8.TabIndex = 7
@@ -233,18 +235,37 @@ Partial Class Form1
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(53, 379)
+        Me.Label9.Location = New System.Drawing.Point(53, 372)
         Me.Label9.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(52, 13)
         Me.Label9.TabIndex = 31
         Me.Label9.Text = "Job Code"
         '
+        'In9
+        '
+        Me.In9.Location = New System.Drawing.Point(163, 395)
+        Me.In9.Name = "In9"
+        Me.In9.Size = New System.Drawing.Size(122, 20)
+        Me.In9.TabIndex = 33
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(52, 398)
+        Me.Label10.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(50, 13)
+        Me.Label10.TabIndex = 32
+        Me.Label10.Text = "Salary ID"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1284, 439)
+        Me.Controls.Add(Me.In9)
+        Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.In8)
         Me.Controls.Add(Me.Label6)
@@ -297,4 +318,6 @@ Partial Class Form1
     Friend WithEvents In8 As TextBox
     Friend WithEvents Label6 As Label
     Friend WithEvents Label9 As Label
+    Friend WithEvents In9 As TextBox
+    Friend WithEvents Label10 As Label
 End Class

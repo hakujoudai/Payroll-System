@@ -131,10 +131,34 @@
     <Compile Include="admin\WelcomeAdmin.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="enduser\EmpID.Designer.vb">
+      <DependentUpon>EmpID.vb</DependentUpon>
+    </Compile>
+    <Compile Include="enduser\EmpID.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="enduser\EmpRecord.Designer.vb">
+      <DependentUpon>EmpRecord.vb</DependentUpon>
+    </Compile>
+    <Compile Include="enduser\EmpRecord.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="enduser\PayrollID.Designer.vb">
+      <DependentUpon>PayrollID.vb</DependentUpon>
+    </Compile>
+    <Compile Include="enduser\PayrollID.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="enduser\WelcomeUser.Designer.vb">
       <DependentUpon>WelcomeUser.vb</DependentUpon>
     </Compile>
     <Compile Include="enduser\WelcomeUser.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.vb">
+      <DependentUpon>Login.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Login.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -154,6 +178,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="MySql\Data.vb" />
+    <Compile Include="staff\PayrollCalculator.Designer.vb">
+      <DependentUpon>PayrollCalculator.vb</DependentUpon>
+    </Compile>
+    <Compile Include="staff\PayrollCalculator.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="staff\WelcomeStaff.Designer.vb">
       <DependentUpon>WelcomeStaff.vb</DependentUpon>
     </Compile>
@@ -186,11 +216,32 @@
     <EmbeddedResource Include="admin\WelcomeAdmin.resx">
       <DependentUpon>WelcomeAdmin.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="enduser\EmpID.resx">
+      <DependentUpon>EmpID.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="enduser\EmpRecord.resx">
+      <DependentUpon>EmpRecord.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="enduser\PayrollID.resx">
+      <DependentUpon>PayrollID.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="enduser\WelcomeUser.resx">
+      <DependentUpon>WelcomeUser.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="staff\PayrollCalculator.resx">
+      <DependentUpon>PayrollCalculator.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="staff\WelcomeStaff.resx">
+      <DependentUpon>WelcomeStaff.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

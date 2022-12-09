@@ -39,8 +39,8 @@ Public Class PayrollDetail
             In3.Text = DataGridView1.SelectedRows(0).Cells(2).Value.ToString
             In4.Text = DataGridView1.SelectedRows(0).Cells(3).Value.ToString
             In5.Text = DataGridView1.SelectedRows(0).Cells(4).Value.ToString
-            In6.Text = DataGridView1.SelectedRows(0).Cells(6).Value.ToString
-            In7.Text = DataGridView1.SelectedRows(0).Cells(7).Value.ToString
+            In6.Text = DataGridView1.SelectedRows(0).Cells(5).Value.ToString
+            In7.Text = DataGridView1.SelectedRows(0).Cells(6).Value.ToString
             In8.Text = DataGridView1.SelectedRows(0).Cells(7).Value.ToString
         Catch ex As Exception
             MessageBox.Show(ex.Message)
