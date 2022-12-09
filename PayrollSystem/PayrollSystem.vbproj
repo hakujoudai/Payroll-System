@@ -119,18 +119,6 @@
     <Compile Include="admin\SalDetails.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Bonus.Designer.vb">
-      <DependentUpon>Bonus.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Bonus.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Deduction.Designer.vb">
-      <DependentUpon>Deduction.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Deduction.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="admin\DeptDetails.Designer.vb">
       <DependentUpon>DeptDetails.vb</DependentUpon>
     </Compile>
@@ -165,12 +153,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Login.Designer.vb">
-      <DependentUpon>Login.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Login.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="MySql\Data.vb" />
     <Compile Include="staff\WelcomeStaff.Designer.vb">
       <DependentUpon>WelcomeStaff.vb</DependentUpon>
@@ -198,12 +180,6 @@
     <EmbeddedResource Include="admin\SalDetails.resx">
       <DependentUpon>SalDetails.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Bonus.resx">
-      <DependentUpon>Bonus.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Deduction.resx">
-      <DependentUpon>Deduction.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="admin\DeptDetails.resx">
       <DependentUpon>DeptDetails.vb</DependentUpon>
     </EmbeddedResource>
@@ -215,9 +191,6 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
-      <DependentUpon>Login.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
