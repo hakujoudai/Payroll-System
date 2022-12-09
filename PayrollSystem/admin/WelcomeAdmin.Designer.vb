@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Welcome
+Partial Class WelcomeAdmin
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -54,7 +54,7 @@ Partial Class Welcome
         Me.Button2.Text = "Add Job Department"
         Me.Button2.UseVisualStyleBackColor = True
         '
-        'Form6
+        'Welcome
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -62,7 +62,7 @@ Partial Class Welcome
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label1)
-        Me.Name = "Form6"
+        Me.Name = "Welcome"
         Me.Text = "Welcome"
         Me.ResumeLayout(False)
         Me.PerformLayout()
