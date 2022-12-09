@@ -5,9 +5,7 @@ Imports MySql.Data.MySqlClient
 Imports Microsoft.VisualBasic.ApplicationServices
 Imports Microsoft.Win32
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
-
-
-Public Class Form5
+Public Class SalDetails
 
     Dim sqlConn As New MySqlConnection
     Dim sqlCmd As New MySqlCommand
@@ -21,7 +19,7 @@ Public Class Form5
 
         sqlConn.Open()
         sqlCmd.Connection = sqlConn
-        sqlCmd.CommandText = "Select * from payroll.jobdept"
+        sqlCmd.CommandText = "Select * from payroll.salary"
 
         sqlRd = sqlCmd.ExecuteReader
         sqlDt.Load(sqlRd)
@@ -30,7 +28,7 @@ Public Class Form5
         DataGridView1.DataSource = sqlDt
     End Sub
 
-    Private Sub Form5_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub SalDetails_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         loadTable()
     End Sub
 
@@ -49,7 +47,7 @@ Public Class Form5
 
         Try
             sqlConn.Open()
-            query = "INSERT INTO payroll.jobdept (JOB_CODE, JOB_DESC, JOB_DEPT) VALUE (" & "'" & In1.Text & "', '" & In2.Text & "' , '" & In3.Text & "');"
+            query = "INSERT INTO payroll.salary (SALARY_ID, JOB_CODE, SALARY_AMOUNT) VALUE (" & "'" & In1.Text & "', '" & In2.Text & "', " & In3.Text & " );"
             sqlCmd = New MySqlCommand(query, sqlConn)
             sqlRd = sqlCmd.ExecuteReader
             sqlRd.Close()
@@ -65,7 +63,6 @@ Public Class Form5
         In1.Text = ""
         In2.Text = ""
         In3.Text = ""
-
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
@@ -75,11 +72,11 @@ Public Class Form5
         sqlCmd.Connection = sqlConn
 
         With sqlCmd
-            .CommandText = "UPDATE payroll.jobdept SET JOB_DESC=@JOB_DESC, JOB_DEPT=@JOB_DEPT WHERE JOB_CODE=@JOB_CODE"
+            .CommandText = "UPDATE payroll.salary SET JOB_DESC=@JOB_DESC, SALARY_AMOUNT=@SALARY_AMOUNT WHERE SALARY_ID=@SALARY_ID"
             .CommandType = CommandType.Text
-            .Parameters.AddWithValue("@JOB_CODE", In1.Text)
-            .Parameters.AddWithValue("@JOB_DESC", In2.Text)
-            .Parameters.AddWithValue("@JOB_DEPT", In3.Text)
+            .Parameters.AddWithValue("@SALARY_ID", In1.Text)
+            .Parameters.AddWithValue("@JOB_CODE", In2.Text)
+            .Parameters.AddWithValue("@SALARY_AMOUNT", In3.Text)
 
         End With
 
@@ -92,7 +89,6 @@ Public Class Form5
         In1.Text = ""
         In2.Text = ""
         In3.Text = ""
-
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
@@ -106,10 +102,10 @@ Public Class Form5
         sqlCmd.Connection = sqlConn
 
         With sqlCmd
-            .CommandText = "DELETE FROM payroll.jobdept WHERE JOB_CODE=@JOB_CODE"
+            .CommandText = "DELETE FROM payroll.salary WHERE SALARY_ID=@SALARY_ID"
 
             .CommandType = CommandType.Text
-            .Parameters.AddWithValue("@JOB_CODE", In1.Text)
+            .Parameters.AddWithValue("@SALARY_ID", In1.Text)
 
         End With
 

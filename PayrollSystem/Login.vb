@@ -25,12 +25,22 @@ Public Class Login
         End If
 
         If userTxt.Text = "admin" And passTxt.Text = "admin" Then
-            MessageBox.Show("welcome admin")
+            MessageBox.Show("Successfully logged in as Admin")
             Me.Hide()
             WelcomeAdmin.Show()
+        ElseIf userTxt.Text = "staff" And passTxt.Text = "staff" Then
+            MessageBox.Show("Successfully logged in as Staff")
+            Me.Hide()
+            WelcomeStaff.Show()
+        ElseIf userTxt.Text = "user" And passTxt.Text = "user" Then
+            MessageBox.Show("Successfully logged in as User")
+            Me.Hide()
+            WelcomeUser.Show()
         Else
-            MessageBox.Show("incorrect username or password")
+            MessageBox.Show("Incorrect Username or Password")
         End If
 
+        userTxt.Text = ""
+        passTxt.Text = ""
     End Sub
 End Class

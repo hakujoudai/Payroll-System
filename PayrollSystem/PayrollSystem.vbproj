@@ -48,16 +48,26 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=8.0.31.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.31\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="ZstdNet, Version=1.4.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.31\lib\net452\ZstdNet.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -73,10 +83,40 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="admin\BonDetails.Designer.vb">
+      <DependentUpon>BonDetails.vb</DependentUpon>
+    </Compile>
+    <Compile Include="admin\BonDetails.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="admin\DedDetails.Designer.vb">
+      <DependentUpon>DedDetails.vb</DependentUpon>
+    </Compile>
+    <Compile Include="admin\DedDetails.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="admin\EmpDetails.Designer.vb">
       <DependentUpon>EmpDetails.vb</DependentUpon>
     </Compile>
     <Compile Include="admin\EmpDetails.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="admin\LeaveDetail.Designer.vb">
+      <DependentUpon>LeaveDetail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="admin\LeaveDetail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="admin\PayrollDetail.Designer.vb">
+      <DependentUpon>PayrollDetail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="admin\PayrollDetail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="admin\SalDetails.Designer.vb">
+      <DependentUpon>SalDetails.vb</DependentUpon>
+    </Compile>
+    <Compile Include="admin\SalDetails.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Bonus.Designer.vb">
@@ -103,6 +143,12 @@
     <Compile Include="admin\WelcomeAdmin.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="enduser\WelcomeUser.Designer.vb">
+      <DependentUpon>WelcomeUser.vb</DependentUpon>
+    </Compile>
+    <Compile Include="enduser\WelcomeUser.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -125,10 +171,32 @@
     <Compile Include="Login.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="MySql\Data.vb" />
+    <Compile Include="staff\WelcomeStaff.Designer.vb">
+      <DependentUpon>WelcomeStaff.vb</DependentUpon>
+    </Compile>
+    <Compile Include="staff\WelcomeStaff.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="admin\BonDetails.resx">
+      <DependentUpon>BonDetails.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin\DedDetails.resx">
+      <DependentUpon>DedDetails.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="admin\EmpDetails.resx">
       <DependentUpon>EmpDetails.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin\LeaveDetail.resx">
+      <DependentUpon>LeaveDetail.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin\PayrollDetail.resx">
+      <DependentUpon>PayrollDetail.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin\SalDetails.resx">
+      <DependentUpon>SalDetails.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Bonus.resx">
       <DependentUpon>Bonus.vb</DependentUpon>
@@ -163,13 +231,11 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="SQL\Payroll System.sql" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="enduser\" />
-    <Folder Include="staff\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

@@ -5,9 +5,7 @@ Imports MySql.Data.MySqlClient
 Imports Microsoft.VisualBasic.ApplicationServices
 Imports Microsoft.Win32
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
-
-
-Public Class Form5
+Public Class PayrollDetail
 
     Dim sqlConn As New MySqlConnection
     Dim sqlCmd As New MySqlCommand
@@ -21,7 +19,7 @@ Public Class Form5
 
         sqlConn.Open()
         sqlCmd.Connection = sqlConn
-        sqlCmd.CommandText = "Select * from payroll.jobdept"
+        sqlCmd.CommandText = "Select * from payroll.payroll"
 
         sqlRd = sqlCmd.ExecuteReader
         sqlDt.Load(sqlRd)
@@ -30,7 +28,7 @@ Public Class Form5
         DataGridView1.DataSource = sqlDt
     End Sub
 
-    Private Sub Form5_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub PayrollDetail_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         loadTable()
     End Sub
 
@@ -39,6 +37,11 @@ Public Class Form5
             In1.Text = DataGridView1.SelectedRows(0).Cells(0).Value.ToString
             In2.Text = DataGridView1.SelectedRows(0).Cells(1).Value.ToString
             In3.Text = DataGridView1.SelectedRows(0).Cells(2).Value.ToString
+            In4.Text = DataGridView1.SelectedRows(0).Cells(3).Value.ToString
+            In5.Text = DataGridView1.SelectedRows(0).Cells(4).Value.ToString
+            In6.Text = DataGridView1.SelectedRows(0).Cells(6).Value.ToString
+            In7.Text = DataGridView1.SelectedRows(0).Cells(7).Value.ToString
+            In8.Text = DataGridView1.SelectedRows(0).Cells(7).Value.ToString
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
@@ -49,7 +52,7 @@ Public Class Form5
 
         Try
             sqlConn.Open()
-            query = "INSERT INTO payroll.jobdept (JOB_CODE, JOB_DESC, JOB_DEPT) VALUE (" & "'" & In1.Text & "', '" & In2.Text & "' , '" & In3.Text & "');"
+            query = "INSERT INTO payroll.payroll (PAYROLL_ID, EMP_ID, JOB_CODE, SALARY_ID, LEAVE_ID, DEDUCTION_ID, BONUS_ID, TOTAL_AMOUNT) VALUE (" & "'" & In1.Text & "', '" & In2.Text & "' , '" & In3.Text & "' , '" & In4.Text & "', '" & In5.Text & "', '" & In6.Text & "', '" & In7.Text & "', " & In8.Text & ");"
             sqlCmd = New MySqlCommand(query, sqlConn)
             sqlRd = sqlCmd.ExecuteReader
             sqlRd.Close()
@@ -65,7 +68,11 @@ Public Class Form5
         In1.Text = ""
         In2.Text = ""
         In3.Text = ""
-
+        In4.Text = ""
+        In5.Text = ""
+        In6.Text = ""
+        In7.Text = ""
+        In8.Text = ""
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
@@ -75,11 +82,11 @@ Public Class Form5
         sqlCmd.Connection = sqlConn
 
         With sqlCmd
-            .CommandText = "UPDATE payroll.jobdept SET JOB_DESC=@JOB_DESC, JOB_DEPT=@JOB_DEPT WHERE JOB_CODE=@JOB_CODE"
+            .CommandText = "UPDATE payroll.payroll SET TOTAL_AMOUNT=@TOTAL_AMOUNT WHERE PAYROLL_ID =@PAYROLL_ID"
             .CommandType = CommandType.Text
-            .Parameters.AddWithValue("@JOB_CODE", In1.Text)
-            .Parameters.AddWithValue("@JOB_DESC", In2.Text)
-            .Parameters.AddWithValue("@JOB_DEPT", In3.Text)
+            .Parameters.AddWithValue("@PAYROLL_ID", In1.Text)
+            .Parameters.AddWithValue("@TOTAL_AMOUNT", In8.Text)
+
 
         End With
 
@@ -92,7 +99,11 @@ Public Class Form5
         In1.Text = ""
         In2.Text = ""
         In3.Text = ""
-
+        In4.Text = ""
+        In5.Text = ""
+        In6.Text = ""
+        In7.Text = ""
+        In8.Text = ""
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
@@ -106,10 +117,10 @@ Public Class Form5
         sqlCmd.Connection = sqlConn
 
         With sqlCmd
-            .CommandText = "DELETE FROM payroll.jobdept WHERE JOB_CODE=@JOB_CODE"
+            .CommandText = "DELETE FROM payroll.payroll WHERE PAYROLL_ID=@PAYROLL_ID"
 
             .CommandType = CommandType.Text
-            .Parameters.AddWithValue("@JOB_CODE", In1.Text)
+            .Parameters.AddWithValue("@PAYROLL_ID", In1.Text)
 
         End With
 
@@ -122,7 +133,11 @@ Public Class Form5
         In1.Text = ""
         In2.Text = ""
         In3.Text = ""
-
+        In4.Text = ""
+        In5.Text = ""
+        In6.Text = ""
+        In7.Text = ""
+        In8.Text = ""
         loadTable()
     End Sub
 End Class

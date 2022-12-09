@@ -6,8 +6,7 @@ Imports Microsoft.VisualBasic.ApplicationServices
 Imports Microsoft.Win32
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 
-
-Public Class Form5
+Public Class LeaveDetail
 
     Dim sqlConn As New MySqlConnection
     Dim sqlCmd As New MySqlCommand
@@ -21,7 +20,7 @@ Public Class Form5
 
         sqlConn.Open()
         sqlCmd.Connection = sqlConn
-        sqlCmd.CommandText = "Select * from payroll.jobdept"
+        sqlCmd.CommandText = "Select * from payroll.leaves"
 
         sqlRd = sqlCmd.ExecuteReader
         sqlDt.Load(sqlRd)
@@ -29,19 +28,25 @@ Public Class Form5
         sqlConn.Close()
         DataGridView1.DataSource = sqlDt
     End Sub
-
-    Private Sub Form5_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        loadTable()
-    End Sub
-
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick, DataGridView1.CellClick
+        Dim dt As DateTime
         Try
             In1.Text = DataGridView1.SelectedRows(0).Cells(0).Value.ToString
             In2.Text = DataGridView1.SelectedRows(0).Cells(1).Value.ToString
-            In3.Text = DataGridView1.SelectedRows(0).Cells(2).Value.ToString
+            dt = DataGridView1.SelectedRows(0).Cells(2).Value.ToString
+            Convert.ToDateTime(dt)
+            Dim format As String = "yyyy-MM-dd"
+            Dim str As String = dt.ToString(format)
+            In3.Text = str
+
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
+    End Sub
+
+
+    Private Sub LeaveDetail_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        loadTable()
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -49,7 +54,7 @@ Public Class Form5
 
         Try
             sqlConn.Open()
-            query = "INSERT INTO payroll.jobdept (JOB_CODE, JOB_DESC, JOB_DEPT) VALUE (" & "'" & In1.Text & "', '" & In2.Text & "' , '" & In3.Text & "');"
+            query = "INSERT INTO payroll.leaves (LEAVE_ID, EMP_ID, DATE_OF_LEAVE) VALUE (" & "'" & In1.Text & "', '" & In2.Text & "', '" & In3.Text & "' );"
             sqlCmd = New MySqlCommand(query, sqlConn)
             sqlRd = sqlCmd.ExecuteReader
             sqlRd.Close()
@@ -65,7 +70,6 @@ Public Class Form5
         In1.Text = ""
         In2.Text = ""
         In3.Text = ""
-
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
@@ -75,11 +79,10 @@ Public Class Form5
         sqlCmd.Connection = sqlConn
 
         With sqlCmd
-            .CommandText = "UPDATE payroll.jobdept SET JOB_DESC=@JOB_DESC, JOB_DEPT=@JOB_DEPT WHERE JOB_CODE=@JOB_CODE"
+            .CommandText = "UPDATE payroll.leaves SET DATE_OF_LEAVE=@DATE_OF_LEAVE WHERE LEAVE_ID=@LEAVE_ID"
             .CommandType = CommandType.Text
-            .Parameters.AddWithValue("@JOB_CODE", In1.Text)
-            .Parameters.AddWithValue("@JOB_DESC", In2.Text)
-            .Parameters.AddWithValue("@JOB_DEPT", In3.Text)
+            .Parameters.AddWithValue("@LEAVE_ID", In1.Text)
+            .Parameters.AddWithValue("@DATE_OF_LEAVE", In3.Text)
 
         End With
 
@@ -92,7 +95,6 @@ Public Class Form5
         In1.Text = ""
         In2.Text = ""
         In3.Text = ""
-
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
@@ -106,10 +108,10 @@ Public Class Form5
         sqlCmd.Connection = sqlConn
 
         With sqlCmd
-            .CommandText = "DELETE FROM payroll.jobdept WHERE JOB_CODE=@JOB_CODE"
+            .CommandText = "DELETE FROM payroll.leaves WHERE LEAVE_ID=@LEAVE_ID"
 
             .CommandType = CommandType.Text
-            .Parameters.AddWithValue("@JOB_CODE", In1.Text)
+            .Parameters.AddWithValue("@LEAVE_ID", In1.Text)
 
         End With
 
@@ -122,7 +124,6 @@ Public Class Form5
         In1.Text = ""
         In2.Text = ""
         In3.Text = ""
-
         loadTable()
     End Sub
 End Class
