@@ -10,7 +10,7 @@ Public Class WelcomeStaff
         PayrollCalculator.show()
     End Sub
 
-    Dim Server As String = "server=localhost;user=root;password=Jeffreythe1st;port=3306;database=payroll"
+    Dim Server As String = "server=localhost;user=root;password=password;port=3306;database=payroll"
 
     Private Sub loadTable()
         sqlConn.ConnectionString = Server

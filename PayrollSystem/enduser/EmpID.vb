@@ -4,4 +4,8 @@
         EmpRecord.id = TextBox1.Text
         EmpRecord.Show()
     End Sub
+
+    Private Sub EmpID_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class

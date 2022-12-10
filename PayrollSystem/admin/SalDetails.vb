@@ -11,7 +11,7 @@ Public Class SalDetails
     Dim sqlCmd As New MySqlCommand
     Dim sqlRd As MySqlDataReader
     Dim sqlDt As New DataTable
-    Dim Server As String = "server=localhost;user=root;password=Jeffreythe1st;port=3306;database=payroll"
+    Dim Server As String = "server=localhost;user=root;password=password;port=3306;database=payroll"
     Dim query As String
 
     Private Sub loadTable()

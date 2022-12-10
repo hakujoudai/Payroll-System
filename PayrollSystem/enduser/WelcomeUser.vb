@@ -11,7 +11,7 @@ Public Class WelcomeUser
     Dim sqlCmd, sqlCmd2 As New MySqlCommand
     Dim sqlRd, sqlRd2 As MySqlDataReader
     Dim sqlDt, sqlDt2 As New DataTable
-    Dim Server As String = "server=localhost;user=root;password=Jeffreythe1st;port=3306;database=payroll"
+    Dim Server As String = "server=localhost;user=root;password=password;port=3306;database=payroll"
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         EmpID.Show()

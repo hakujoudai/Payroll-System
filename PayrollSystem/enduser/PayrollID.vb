@@ -13,7 +13,7 @@ Public Class PayrollID
     Dim sqlCmd As New MySqlCommand
     Dim sqlRd As MySqlDataReader
     Dim dtA As New MySqlDataAdapter
-    Dim Server As String = "server=localhost;user=root;password=Jeffreythe1st;port=3306;database=payroll"
+    Dim Server As String = "server=localhost;user=root;password=password;port=3306;database=payroll"
     Dim query As String
 
     Private Sub View_Click(sender As Object, e As EventArgs) Handles View.Click
@@ -36,5 +36,9 @@ Public Class PayrollID
         End Try
 
         Label3.Text = "PHP " & total
+    End Sub
+
+    Private Sub PayrollID_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

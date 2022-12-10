@@ -12,7 +12,7 @@ Public Class PayrollCalculator
     Dim sqlCmd As New MySqlCommand
     Dim sqlRd As MySqlDataReader
     Dim dtA As New MySqlDataAdapter
-    Dim Server As String = "server=localhost;user=root;password=Jeffreythe1st;port=3306;database=payroll"
+    Dim Server As String = "server=localhost;user=root;password=password;port=3306;database=payroll"
     Dim query As String
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -48,5 +48,9 @@ Public Class PayrollCalculator
         End Try
 
         TextBox4.Text = sal - ded + bon
+    End Sub
+
+    Private Sub PayrollCalculator_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

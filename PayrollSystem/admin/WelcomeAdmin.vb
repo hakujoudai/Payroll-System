@@ -11,7 +11,7 @@ Public Class WelcomeAdmin
     Dim sqlCmd, sqlCmd2, sqlCmd3, sqlCmd4, sqlCmd5, sqlCmd6, sqlCmd7 As New MySqlCommand
     Dim sqlRd, sqlRd2, sqlRd3, sqlRd4, sqlRd5, sqlRd6, sqlRd7 As MySqlDataReader
     Dim sqlDt, sqlDt2, sqlDt3, sqlDt4, sqlDt5, sqlDt6, sqlDt7 As New DataTable
-    Dim Server As String = "server=localhost;user=root;password=Jeffreythe1st;port=3306;database=payroll"
+    Dim Server As String = "server=localhost;user=root;password=password;port=3306;database=payroll"
 
     Private Sub loadTable()
         sqlConn.ConnectionString = Server
